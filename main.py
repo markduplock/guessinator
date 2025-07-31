@@ -5,7 +5,7 @@ def log_guesses(guess):
     LOG_PATH = "guesses.log"
 
     with open(LOG_PATH, "a") as f:
-        f.write(f"Your guess: {guess}\n")
+        f.write(f"\nYour guess: {guess}")
 
 
 def compare_guess(guess, random_number):
@@ -50,6 +50,8 @@ def main():
             print("Too low!")
         elif compare_guess(guess, random_number) == "Too high!":
             print("Too high!")
+    with open(LOG_PATH, "a") as f:
+        f.write("\n============\n")
     print(f"See your guesses: {LOG_PATH}")
 
 
