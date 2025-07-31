@@ -1,5 +1,5 @@
 # Guessinator
 
-## A simple number guessing game.
+A simple number guessing game.
 
-### Built to learn
+Built to learn
