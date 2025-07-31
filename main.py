@@ -10,7 +10,7 @@ def log_guesses(guess):
 
 def compare_guess(guess, random_number):
     if guess == random_number:
-        return "Winner Winner!"
+        return "Winner!"
     elif guess < random_number:
         return "Too low!"
     elif guess > random_number:
@@ -43,8 +43,8 @@ def main():
 
     while True:
         guess = get_guess()
-        if compare_guess(guess, random_number) == "Winner Winner!":
-            print("Winner winner!")
+        if compare_guess(guess, random_number) == "Winner!":
+            print("Winner!")
             break
         elif compare_guess(guess, random_number) == "Too low!":
             print("Too low!")
