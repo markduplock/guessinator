@@ -1,1 +1,5 @@
-guesses.log
+# VS Code
+.vscode/
+
+# PyCharm / JetBrains
+.idea/
