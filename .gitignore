@@ -3,5 +3,5 @@
 
 # PyCharm / JetBrains
 .idea/
-.toml
-.lock
+*.toml
+*.lock
