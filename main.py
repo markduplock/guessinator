@@ -1,13 +1,5 @@
 import random
 
-
-def log_guesses(guess):
-    LOG_PATH = "guesses.log"
-
-    with open(LOG_PATH, "a") as f:
-        f.write(f"\nYour guess: {guess}")
-
-
 def compare_guess(guess, random_number):
     if guess == random_number:
         return "Winner!"
@@ -15,7 +7,8 @@ def compare_guess(guess, random_number):
         return "Too low!"
     elif guess > random_number:
         return "Too high!"
-
+    else:
+        return "Something went wrong!"
 
 def get_guess():
     MIN_GUESS = 1
@@ -27,33 +20,30 @@ def get_guess():
             if guess < MIN_GUESS or guess > MAX_GUESS:
                 print("Invalid input. Must be a number between 1 - 10")
             else:
-                log_guesses(guess)
                 return guess
         except ValueError:
             print("Invalid input. Must be a number between 1 - 10")
 
-
 def get_random_number():
     return random.randint(1, 10)
 
-
 def main():
     random_number = get_random_number()
-    LOG_PATH = "guesses.log"
 
     while True:
         guess = get_guess()
-        if compare_guess(guess, random_number) == "Winner!":
+        result = compare_guess(guess, random_number)
+
+        if result == "Winner!":
             print("Winner!")
             break
-        elif compare_guess(guess, random_number) == "Too low!":
+        elif result == "Too low!":
             print("Too low!")
-        elif compare_guess(guess, random_number) == "Too high!":
+        elif result == "Too high!":
             print("Too high!")
-    with open(LOG_PATH, "a") as f:
-        f.write("\n============\n")
-    print(f"See your guesses: {LOG_PATH}")
-
+        elif result == "Some went wrong!":
+            print("Something went wrong!")
+            break
 
 if __name__ == "__main__":
     main()
